@@ -3,9 +3,9 @@ package main
 import (
 	"math"
 
-	"github.com/Zac-Garby/engine/colour"
-	"github.com/Zac-Garby/engine/geom"
-	"github.com/Zac-Garby/engine/window"
+	"github.com/Zac-Garby/ggl/colour"
+	"github.com/Zac-Garby/ggl/geom"
+	"github.com/Zac-Garby/ggl/window"
 )
 
 var (

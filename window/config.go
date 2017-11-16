@@ -1,7 +1,7 @@
 package window
 
 import (
-	"github.com/Zac-Garby/engine/colour"
+	"github.com/Zac-Garby/ggl/colour"
 	"github.com/veandco/go-sdl2/sdl"
 )
 
