@@ -12,6 +12,7 @@ type Config struct {
 	Height int
 	Title  string
 	Clear  *colour.Colour
+	Vsync  bool
 }
 
 // Default is a default Config, dimensions
@@ -21,6 +22,7 @@ var Default = &Config{
 	Height: 600,
 	Title:  "Game",
 	Clear:  colour.Black,
+	Vsync:  true,
 }
 
 // Make creates a new Window from the Config. It
@@ -43,8 +45,10 @@ func (c *Config) Make() (*Window, error) {
 	// Get focus
 	window.Raise()
 
-	// Enable VSync
-	sdl.GL_SetSwapInterval(1)
+	if c.Vsync {
+		// Enable VSync
+		sdl.GL_SetSwapInterval(1)
+	}
 
 	w := &Window{
 		Window:   window,
