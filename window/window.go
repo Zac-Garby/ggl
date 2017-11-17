@@ -8,6 +8,9 @@ import (
 	"github.com/veandco/go-sdl2/sdl"
 )
 
+// A Keycode is a unique identifier of a key type.
+type Keycode = sdl.Keycode
+
 // A Window is a wrapper around an SDL window, onto
 // which graphics can be rendered.
 //
@@ -21,6 +24,8 @@ type Window struct {
 
 	fill   bool
 	colour *colour.Colour
+
+	Keys map[Keycode]bool
 
 	Update      func(dt float64)
 	Render      func()
@@ -49,13 +54,18 @@ main:
 
 		// Iterate the events
 		for event := sdl.PollEvent(); event != nil; event = sdl.PollEvent() {
-			switch event.(type) {
+			switch evt := event.(type) {
 			case *sdl.QuitEvent:
 				break main
 
-			default:
-				w.HandleEvent(&event)
+			case *sdl.KeyDownEvent:
+				w.Keys[evt.Keysym.Sym] = true
+
+			case *sdl.KeyUpEvent:
+				delete(w.Keys, evt.Keysym.Sym)
 			}
+
+			w.HandleEvent(&event)
 		}
 
 		w.Update(dt)
