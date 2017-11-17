@@ -126,3 +126,14 @@ func (w *Window) Sprite(sprite *geom.Sprite) *Window {
 
 	return w
 }
+
+// Texture draws a texture directly to the window
+// without creating a sprite. Can be chained.
+func (w *Window) Texture(tex *sdl.Texture, x, y, width, height float64) *Window {
+	w.Renderer.Copy(tex, nil, &sdl.Rect{
+		X: int32(x),
+		Y: int32(y),
+		W: int32(width),
+		H: int32(height),
+	})
+}
