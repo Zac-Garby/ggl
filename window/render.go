@@ -136,4 +136,6 @@ func (w *Window) Texture(tex *sdl.Texture, x, y, width, height float64) *Window 
 		W: int32(width),
 		H: int32(height),
 	})
+
+	return w
 }
