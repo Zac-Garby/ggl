@@ -27,8 +27,8 @@ func main() {
 ```
 
 Have a look in `/example` for some more interesting ones. Be sure to run the examples from
-`/example`, i.e. `cd` into the directory then `go run` the file directly, instead of
-`go run example/assets.go`, so the assets can be found.
+`/example/...`, i.e. `cd` into the directory then `go run` the file directly, instead of
+`go run example/loader/main.go`, so the assets can be found.
 
 <img src="eg.png" align="center" />
 
