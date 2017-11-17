@@ -4,6 +4,7 @@ import (
 	"github.com/Zac-Garby/ggl/colour"
 	"github.com/Zac-Garby/ggl/geom"
 	"github.com/veandco/go-sdl2/gfx"
+	"github.com/veandco/go-sdl2/sdl"
 )
 
 // Fill causes shapes drawn after the call
@@ -111,6 +112,17 @@ func (w *Window) Polyline(verts []*geom.Vec) *Window {
 			w.Line(v, next)
 		}
 	}
+
+	return w
+}
+
+// Sprite draws a sprite on the window. Can be
+// chained.
+func (w *Window) Sprite(sprite *geom.Sprite) *Window {
+	w.Renderer.CopyEx(
+		sprite.Texture, nil, sprite.SDLRect(),
+		sprite.Angle, nil, sdl.FLIP_NONE,
+	)
 
 	return w
 }
