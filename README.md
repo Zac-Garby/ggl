@@ -32,7 +32,7 @@ Have a look in `/example` for some more interesting ones. Be sure to run the exa
 
 ![](eg.gif)
 
-_ggl_ is split into 3 packages:
+_ggl_ is split into 4 packages:
 
  - **window** handles creation of windows and rendering to them.
  - **geom** contains structs for various shapes and other maths things.
