@@ -35,7 +35,7 @@ Have a look in `/example` for some more interesting ones. Be sure to run the exa
 _ggl_ is split into 4 packages:
 
  - **window** handles creation of windows and rendering to them.
- - **geom** contains structs for various shapes and other maths things.
+ - **geom** contains structs for various shapes and other things.
  - **colour** contains the colour struct, since it didn't really fit in anywhere else.
  - **loader** loads assets (currently only textures, but in the future there will be more).
 
@@ -51,13 +51,13 @@ Currently implemented:
  - Fast, GPU accelerated rendering
  - Event handling (raw SDL events)
  - Asset loading
+ - Sprites
 
 What isn't implemented yet, but will be soon:
 
  - **Documentation**
  - An event wrapper type
  - Store currently pressed keys and mouse buttons in the window for querying
- - Sprites
  - Sounds
  - Text rendering, fonts
 
