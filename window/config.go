@@ -55,6 +55,7 @@ func (c *Config) Make() (*Window, error) {
 		Renderer: rend,
 		cfg:      c,
 		fill:     false,
+		Keys:     make(map[Keycode]bool),
 
 		Update:      func(float64) {},
 		Render:      func() {},
