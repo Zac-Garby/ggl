@@ -24,7 +24,10 @@ func New(tex *sdl.Texture, x, y, width, height float64) *Sprite {
 	}
 }
 
-// FromAsset creates a new sprite
+// FromAsset creates a new sprite by loading
+// the named asset from the loader. An error
+// will only be returned from the GetTexture
+// call.
 func FromAsset(name string, ld *loader.Loader, rend *sdl.Renderer, x, y float64) (*Sprite, error) {
 	surf, tex, err := ld.GetTexture(name, rend)
 	if err != nil {
