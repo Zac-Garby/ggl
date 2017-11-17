@@ -30,7 +30,7 @@ Have a look in `/example` for some more interesting ones. Be sure to run the exa
 `/example`, i.e. `cd` into the directory then `go run` the file directly, instead of
 `go run example/assets.go`, so the assets can be found.
 
-![](eg.gif)
+<img src="eg.png" align="center" />
 
 _ggl_ is split into 4 packages:
 
