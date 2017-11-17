@@ -1,9 +1,9 @@
 package main
 
 import (
+	"github.com/Zac-Garby/ggl/geom"
 	"github.com/Zac-Garby/ggl/loader"
 	"github.com/Zac-Garby/ggl/window"
-	"github.com/veandco/go-sdl2/sdl"
 )
 
 func main() {
@@ -20,30 +20,28 @@ func main() {
 
 	load.MustLoad()
 	_, cat := load.MustGetTexture("cat", win.Renderer)
-	s, gopher := load.MustGetTexture("gopher", win.Renderer)
 
-	x := -float64(s.W)
-	angle := 0.0
+	gopher, err := geom.SpriteFromAsset("gopher", load, win.Renderer, 0, 0)
+	if err != nil {
+		panic(err)
+	}
+
+	gopher.Y = 300 - gopher.Height/2
+	gopher.X = -gopher.Width / 2
 
 	win.Render = func() {
-		win.Renderer.Copy(cat, nil, nil)
-
-		win.Renderer.CopyEx(gopher, nil, &sdl.Rect{
-			X: int32(x),
-			Y: 300 - s.H/2,
-			W: s.W,
-			H: s.H,
-		}, angle, nil, sdl.FLIP_NONE)
+		win.Texture(cat, 0, 0, 800, 600)
+		win.Sprite(gopher)
 	}
 
 	win.Update = func(dt float64) {
-		x += 150 * dt
+		gopher.Move(150*dt, 0)
 
-		if x-50 > 800 {
-			x = -float64(s.W) - 50
+		if gopher.X-50 > 800 {
+			gopher.X = -float64(gopher.Width) - 50
 		}
 
-		angle += 90 * dt
+		gopher.Rotate(90 * dt)
 	}
 
 	win.Loop()
