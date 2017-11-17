@@ -49,15 +49,13 @@ Currently implemented:
    - Rectangles, circles, lines, polygons, etc...
  - Lower level access to SDL window and renderer for more control
  - Fast, GPU accelerated rendering
- - Event handling (raw SDL events)
+ - Input via events or polling
  - Asset loading
  - Sprites
 
 What isn't implemented yet, but will be soon:
 
  - **Documentation**
- - An event wrapper type
- - Store currently pressed keys and mouse buttons in the window for querying
  - Sounds
  - Text rendering, fonts
 
