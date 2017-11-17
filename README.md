@@ -26,7 +26,9 @@ func main() {
 }
 ```
 
-Have a look in `/example` for some more interesting ones.
+Have a look in `/example` for some more interesting ones. Be sure to run the examples from
+`/example`, i.e. `cd` into the directory then `go run` the file directly, instead of
+`go run example/assets.go`, so the assets can be found.
 
 ![](eg.gif)
 
@@ -35,6 +37,7 @@ _ggl_ is split into 3 packages:
  - **window** handles creation of windows and rendering to them.
  - **geom** contains structs for various shapes and other maths things.
  - **colour** contains the colour struct, since it didn't really fit in anywhere else.
+ - **loader** loads assets (currently only textures, but in the future there will be more).
 
 ## Features
 
@@ -47,13 +50,13 @@ Currently implemented:
  - Lower level access to SDL window and renderer for more control
  - Fast, GPU accelerated rendering
  - Event handling (raw SDL events)
+ - Asset loading
 
 What isn't implemented yet, but will be soon:
 
  - **Documentation**
  - An event wrapper type
  - Store currently pressed keys and mouse buttons in the window for querying
- - Asset loading (async/sync)
  - Sprites
  - Sounds
  - Text rendering, fonts
