@@ -58,9 +58,9 @@ func (w *Window) Circle(c *geom.Circle) *Window {
 	)
 
 	if w.fill {
-		gfx.FilledCircleRGBA(w.Renderer, x, y, radius, r, g, b, a)
+		gfx.FilledCircleRGBA(w.Renderer, int32(x), int32(y), int32(radius), r, g, b, a)
 	} else {
-		gfx.CircleRGBA(w.Renderer, x, y, radius, r, g, b, a)
+		gfx.CircleRGBA(w.Renderer, int32(x), int32(y), int32(radius), r, g, b, a)
 	}
 
 	return w
@@ -76,7 +76,7 @@ func (w *Window) Line(from, to *geom.Vec) *Window {
 		y1 = int(to.Y)
 	)
 
-	w.Renderer.DrawLine(x0, y0, x1, y1)
+	w.Renderer.DrawLine(int32(x0), int32(y0), int32(x1), int32(y1))
 
 	return w
 }

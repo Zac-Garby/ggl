@@ -58,11 +58,12 @@ main:
 			case *sdl.QuitEvent:
 				break main
 
-			case *sdl.KeyDownEvent:
-				w.Keys[evt.Keysym.Sym] = true
-
-			case *sdl.KeyUpEvent:
-				delete(w.Keys, evt.Keysym.Sym)
+			case *sdl.KeyboardEvent:
+				if evt.State == sdl.PRESSED {
+					w.Keys[evt.Keysym.Sym] = true
+				} else {
+					delete(w.Keys, evt.Keysym.Sym)
+				}
 			}
 
 			w.HandleEvent(&event)

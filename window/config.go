@@ -35,7 +35,7 @@ func (c *Config) Make() (*Window, error) {
 		return nil, err
 	}
 
-	window, rend, err := sdl.CreateWindowAndRenderer(c.Width, c.Height, sdl.WINDOW_SHOWN|sdl.RENDERER_ACCELERATED)
+	window, rend, err := sdl.CreateWindowAndRenderer(int32(c.Width), int32(c.Height), sdl.WINDOW_SHOWN|sdl.RENDERER_ACCELERATED)
 	if err != nil {
 		return nil, err
 	}
@@ -47,7 +47,7 @@ func (c *Config) Make() (*Window, error) {
 
 	if c.Vsync {
 		// Enable VSync
-		sdl.GL_SetSwapInterval(1)
+		sdl.GLSetSwapInterval(1)
 	}
 
 	w := &Window{
